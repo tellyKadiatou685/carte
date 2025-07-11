@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carte de Visite Digitale</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .card-container {
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #1e3c72, #2a5298, #1e3c72);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            position: relative;
+            background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-image i {
+            font-size: 48px;
+            color: #666;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .name {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1e3c72;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .title {
+            font-size: 16px;
+            color: #2a5298;
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .company {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .address {
+            font-size: 13px;
+            color: #777;
+            margin-bottom: 30px;
+            line-height: 1.4;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-card { background: #1e4a72; }
+        .phone { background: #1e4a72; }
+        .email { background: #1e4a72; }
+        .website { background: #1e4a72; }
+
+        .contact-info {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-item i {
+            margin-right: 12px;
+            width: 16px;
+            color: #2a5298;
+        }
+
+        .footer {
+            margin-top: 25px;
+            font-size: 11px;
+            color: #aaa;
+            font-style: italic;
+        }
+
+        @media (max-width: 480px) {
+            .card-container {
+                padding: 30px 20px;
+                margin: 10px;
+            }
+            
+            .social-links {
+                gap: 10px;
+            }
+            
+            .social-link {
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <!-- Image de profil - Remplacez par l'URL de votre photo -->
+        <div class="profile-image">
+           
+            <!-- Décommentez et ajoutez l'URL de votre photo -->
+            <img src="ggh.jpeg" alt="Photo de profil">
+        </div>
+
+        <!-- Informations personnelles -->
+        <h1 class="name">Daouda Ba</h1>
+        <p class="title">Responsable Logistique</p>
+        <p class="company">Expert en Gestion & Coordination</p>
+        <p class="address">Dakar, Sénégal</p>
+
+        <!-- Liens sociaux -->
+        <div class="social-links">
+            <a href="#" class="social-link contact-card" onclick="downloadVCard(); return false;" title="Sauvegarder Contact">
+                <i class="fas fa-address-card"></i>
+            </a>
+            
+            <a href="+221775118530" class="social-link phone" title="Téléphone">
+                <i class="fas fa-phone"></i>
+            </a>
+            
+            <a href="mailto:Badaouda664@gmail.com" class="social-link email" title="Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+            
+            <a href="https://www.tiktok.com/@userdaoudaba?_t=ZM-8xv7BX24IEv&_r=1" class="social-link website" target="_blank" title="TikTok">
+                <i class="fab fa-tiktok"></i>
+            </a>
+        </div>
+
+        <!-- Réseaux sociaux supplémentaires -->
+        <div class="additional-social">
+            <a href="https://www.facebook.com/daouda.ba" class="social-link-small facebook" target="_blank" title="Facebook - Daouda Ba">
+                <i class="fab fa-facebook-f"></i> Facebook
+            </a>
+        </div>
+
+        <!-- Informations de contact détaillées -->
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span>+221775118530</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>Badaouda664@gmail.com</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Senegal,Dakar,Point E</span>
+            </div>
+        </div>
+
+        <div class="footer">
+            © 2025 Développé par Tellytech
+        </div>
+    </div>
+
+    <script>
+        function downloadVCard() {
+            const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:Votre Nom
+ORG:Nom de votre Entreprise
+TITLE:Votre Titre Professionnel
+TEL;TYPE=WORK,VOICE:+221XXXXXXXXX
+EMAIL;TYPE=WORK:votre.email@exemple.com
+URL:https://votre-site-web.com
+ADR;TYPE=WORK:;;Votre Adresse;Ville;;Code Postal;Pays
+NOTE:Votre description professionnelle
+END:VCARD`;
+
+            const blob = new Blob([vcard], { type: 'text/vcard' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'contact.vcf';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        // Animation d'entrée
+        window.addEventListener('load', function() {
+            const card = document.querySelector('.card-container');
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease';
+            
+            setTimeout(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, 100);
+        });
+
+        // Effet de hover sur les éléments
+        document.querySelectorAll('.social-link').forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px) scale(1.1)';
+            });
+            
+            link.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
